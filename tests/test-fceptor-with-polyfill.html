@@ -1,0 +1,14 @@
+<script> fetch = null; </script>
+<script src="//github.elemecdn.com/uglifyjs!github/fetch/v0.11.0/fetch.js"></script>
+<script src="//github.elemecdn.com/YanagiEiichi/fceptor/0.2.8/fceptor.js"></script>
+<script src="//github.elemecdn.com/YanagiEiichi/tester/0.0.14/tester.js"></script>
+<script src="/index.js"></script>
+<script>
+fetch('data.json').then(response => {
+  Tester.assert(response.headers.get('x-test-header') === 'hehe');
+  return response.json();
+}).then(result => {
+  Tester.assert(result.name === 'hehe');
+  Tester.feedback(true);
+});
+</script>

@@ -1,0 +1,15 @@
+<script src="//github.elemecdn.com/YanagiEiichi/xceptor/0.2.9/xceptor.js"></script>
+<script src="//github.elemecdn.com/YanagiEiichi/tester/0.0.14/tester.js"></script>
+<script src="/index.js"></script>
+<script>
+let xhr = new XMLHttpRequest();
+xhr.open('GET', 'data.json');
+xhr.onload = () => {
+  let result = JSON.parse(xhr.responseText); 
+  let hehe = xhr.getResponseHeader('X-Test-Header');
+  Tester.assert(hehe === 'hehe');
+  Tester.assert(result.name === 'hehe');
+  Tester.feedback(true);
+};
+xhr.send();
+</script>

@@ -1,0 +1,28 @@
+{
+  "name": "pocket-noodles",
+  "version": "1.0.0",
+  "description": "A WEB API CACHING SOLUTION",
+  "main": "index.js",
+  "scripts": {
+    "test": "cd tests && ./test.js",
+    "build": "amd2umd src/index.js > index.js",
+    "watch": "watch -n 1 find src -name '*.js' -mtime -2s -exec 'npm run build' '\\;'"
+  },
+  "author": "rongyi.liu@ele.me",
+  "license": "MIT",
+  "devDependencies": {
+    "amd2umd": "~0.0.5"
+  },
+  "reciperConfig": {
+    "darkColor": "#333",
+    "normalColor": "#666",
+    "primaryColor": "#000",
+    "logoUrl": "//fuss10.elemecdn.com/c/0d/341dab9e8e5f78d3be40e6aeca8d1jpeg.jpeg",
+    "languages": [ "xml", "markdown", "bash", "javascript" ],
+    "home": "/pocket-noodles/",
+    "items": [
+      { "text": "Intro", "href": "/pocket-noodles/docs/intro/" },
+      { "text": "Manual", "href": "/pocket-noodles/docs/manual/" }
+    ]
+  }
+}
