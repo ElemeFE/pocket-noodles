@@ -63,15 +63,16 @@ define([ 'FCeptor', 'XCeptor' ], function(FCeptor, XCeptor) {
   Noodles.load = function(url) {
     return JSON.parse(new this().get(url));
   };
-
   // Inject the fetch api
   if (FCeptor) {
     FCeptor.get(/^/, null, function(ctx) {
       if (ctx.request.method !== 'GET') return; // Only GET
-      var type = ctx.response.headers.get('Content-Type');
-      if (!/\bjson\b/i.test(type)) return; // Only json
+      if (ctx.response) {
+        var type = ctx.response.headers.get('Content-Type');
+        if (!/\bjson\b/i.test(type)) return; // Only json
+      }
       var url = ctx.request.url;
-      var status = ctx.response.status;
+      var status = ctx.response ? ctx.response.status : 999;
       if (status < 400) {
         // Get all headers
         var headers = {};
