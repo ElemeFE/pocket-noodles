@@ -14,6 +14,7 @@ define([ 'FCeptor', 'XCeptor' ], function(FCeptor, XCeptor) {
     var length = localStorage.length;
     for (i = 0; i < length; i++) {
       var matches = localStorage.key(i).match(/^\[pocket-noodles\]\[(.*?)\]\[(.*?)\]\[(.*?)\]/);
+      if (!matches) continue;
       var date = new Date(matches[1]);
       var size = decodeURIComponent(matches[2]);
       var url = decodeURIComponent(matches[3]);
