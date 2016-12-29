@@ -20,9 +20,9 @@ define([ 'FCeptor', 'XCeptor' ], function(FCeptor, XCeptor) {
       var url = decodeURIComponent(matches[3]);
       noodles[url] = matches[0];
       noodles.push({ date: date, url: url, size: size });
-      noodles.sort(function(a, b) { return a - b; });
       this.total += +size;
     }
+    noodles.sort(function(a, b) { return b.date - a.date; });
   };
 
   // Remove oldest item
